@@ -46,7 +46,7 @@
         header {
             background-color: var(--primary-purple);
             color: var(--white);
-            padding: 10px 20px;
+            padding: 25px 20px; /* Reduced from 50px top/bottom to 25px */
             text-align: center;
             border-radius: 15px 15px 0 0; /* Rounded top corners */
             margin: 0 20px; /* Aligns with container if not using full width header */
@@ -55,14 +55,14 @@
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.8em; /* Larger, more impactful */
-            margin-bottom: 8px;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 2.8em; /* Also reduced font size for a more compact look */
+            margin-bottom: 5px; /* Reduced margin */
+            letter-spacing: 1px; /* Slightly tighter letter spacing */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Slightly less prominent shadow */
         }
 
         header p {
-            font-size: 1.4em;
+            font-size: 1.1em; /* Also reduced font size for a more compact look */
             margin-top: 0;
             opacity: 0.95;
             font-weight: 300;
@@ -215,10 +215,13 @@
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2.8em;
+                font-size: 2em; /* Smaller on mobile as well */
             }
             header p {
-                font-size: 1.1em;
+                font-size: 0.9em; /* Smaller on mobile as well */
+            }
+            header {
+                padding: 15px 10px; /* Even smaller padding on mobile */
             }
             .container {
                 padding: 20px;
@@ -238,16 +241,7 @@
 
         @media (max-width: 480px) {
             header h1 {
-                font-size: 2em;
-            }
-            header {
-                padding: 30px 10px;
-            }
-            .section h2 {
-                font-size: 1.8em;
-            }
-            .contact-info {
-                font-size: 1em;
+                font-size: 1.5em; /* Even smaller for very small screens */
             }
         }
     </style>
