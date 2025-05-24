@@ -3,160 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salon Mirage – Full Service Tanning and Styling Salon</title>
+    <title>Salon Mirage – Your Beauty Destination</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Basic Reset & Body Styles */
+        /* --- Colors --- */
+        :root {
+            --primary-purple: #7D5A9C; /* A vibrant, modern purple */
+            --accent-pink: #F7B5D4;    /* Soft, complementary pink */
+            --light-blue: #D6ECF0;     /* Fresh, airy blue */
+            --dark-gray: #333;
+            --medium-gray: #666;
+            --light-gray: #f8f8f8;
+            --white: #fff;
+        }
+
+        /* --- General Body & Container --- */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f8f8;
+            color: var(--dark-gray);
+            background-color: var(--light-blue); /* Light blue background for infographic feel */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 1000px; /* Slightly wider for infographic elements */
+            margin: 20px auto;
+            padding: 30px;
+            background-color: var(--white);
+            border-radius: 15px; /* Softer rounded corners */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            flex-grow: 1; /* Allows container to expand */
         }
 
-        /* Header */
+        /* --- Header --- */
         header {
-            background-color: #5a3e7a; /* Deep purple */
-            color: #fff;
-            padding: 60px 20px;
+            background-color: var(--primary-purple);
+            color: var(--white);
+            padding: 50px 20px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 15px 15px 0 0; /* Rounded top corners */
+            margin: 0 20px; /* Aligns with container if not using full width header */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5em;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
+            font-size: 3.8em; /* Larger, more impactful */
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         header p {
-            font-size: 1.3em;
+            font-size: 1.4em;
             margin-top: 0;
-            opacity: 0.9;
+            opacity: 0.95;
+            font-weight: 300;
         }
 
-        /* Section Styling */
+        /* --- Section Styling --- */
         .section {
-            background-color: #fff;
-            padding: 40px;
+            padding: 40px 0;
             margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
         .section h2 {
             font-family: 'Playfair Display', serif;
-            color: #5a3e7a;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: var(--primary-purple);
+            font-size: 2.5em;
+            margin-bottom: 30px;
             text-align: center;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            position: relative;
+            padding-bottom: 15px;
         }
 
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-pink); /* Accent line under headings */
+            border-radius: 2px;
+        }
+
+        /* --- Services Grid for Infographic Look --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            padding: 20px 0;
         }
 
         .service-category {
-            background-color: #fcfcfc;
-            border: 1px solid #eee;
-            border-radius: 6px;
+            background-color: var(--white);
+            border: 1px solid var(--accent-pink); /* Accent border */
+            border-radius: 10px;
             padding: 25px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center; /* Center align category content */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
         }
 
         .service-category h3 {
-            font-family: 'Playfair Display', serif;
-            color: #7b599f; /* Lighter purple */
-            font-size: 1.4em;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-purple);
+            font-size: 1.6em;
             margin-top: 0;
             margin-bottom: 15px;
-            text-align: center;
-            border-bottom: 1px dashed #e0e0e0;
-            padding-bottom: 8px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-blue); /* Subtle separator */
         }
 
         .service-category ul {
             list-style: none;
             padding: 0;
             margin: 0;
+            flex-grow: 1; /* Distributes space in columns */
         }
 
         .service-category ul li {
-            padding: 8px 0;
-            border-bottom: 1px dotted #f0f0f0;
+            padding: 10px 0;
+            border-bottom: 1px dotted var(--light-gray);
+            font-size: 1.05em;
+            color: var(--medium-gray);
         }
 
         .service-category ul li:last-child {
             border-bottom: none;
         }
 
-        /* Specific styles for lists */
-        .service-category.tanning ul li {
-            font-weight: bold; /* Tanning info is crucial */
-            color: #4a4a4a;
+        /* Special Tanning Card Highlight */
+        .service-category.tanning {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            border-color: var(--accent-pink);
         }
 
-        /* Contact Section */
+        .service-category.tanning h3 {
+            color: var(--light-blue);
+            border-bottom-color: var(--accent-pink);
+        }
+
+        .service-category.tanning ul li {
+            color: var(--white);
+            font-weight: 600;
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- Contact Section --- */
         .contact-info {
+            background-color: var(--accent-pink); /* Use accent color for distinction */
+            padding: 40px;
+            border-radius: 10px;
             text-align: center;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-top: 40px;
+        }
+
+        .contact-info h2 {
+            color: var(--white);
+            font-size: 2.2em;
         }
 
         .contact-info p {
-            margin: 10px 0;
+            margin: 12px 0;
         }
 
         .contact-info a {
-            color: #5a3e7a;
+            color: var(--primary-purple); /* Darker link on light background */
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
+            transition: color 0.3s ease;
         }
 
         .contact-info a:hover {
+            color: var(--dark-gray);
             text-decoration: underline;
         }
 
-        /* Footer */
+        /* --- Footer --- */
         footer {
             text-align: center;
             padding: 30px 20px;
-            margin-top: 40px;
-            background-color: #5a3e7a;
-            color: #fff;
+            background-color: var(--primary-purple);
+            color: var(--white);
             font-size: 0.9em;
+            margin-top: 40px;
+            border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Responsive Design */
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2.5em;
+                font-size: 2.8em;
             }
             header p {
-                font-size: 1em;
+                font-size: 1.1em;
             }
-            .section {
-                padding: 25px;
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            .section h2 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+            .service-category {
+                padding: 20px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr; /* Stack columns on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header {
+                padding: 30px 10px;
             }
             .section h2 {
                 font-size: 1.8em;
             }
-            .service-category {
-                padding: 20px;
+            .contact-info {
+                font-size: 1em;
             }
         }
     </style>
@@ -164,35 +255,34 @@
 <body>
 
     <header>
-        <div class="container">
-            <h1>Salon Mirage</h1>
-            <p>Full Service Tanning and Styling Salon</p>
+        <div class="container-fluid"> <h1>Salon Mirage</h1>
+            <p>Your Full Service Destination for Tanning & Styling</p>
         </div>
     </header>
 
     <main class="container">
         <section class="section">
-            <h2>Our Services</h2>
+            <h2>Our Comprehensive Services</h2>
             <div class="services-grid">
 
                 <div class="service-category">
                     <h3>Haircuts & Styling</h3>
                     <ul>
-                        <li>Women</li>
-                        <li>Men</li>
-                        <li>Children</li>
+                        <li>Women's Haircuts</li>
+                        <li>Men's Haircuts</li>
+                        <li>Children's Haircuts</li>
                         <li>Bang Trim</li>
-                        <li>Deep Conditioning</li>
+                        <li>Deep Conditioning Treatments</li>
                         <li>Shampoo & Set</li>
                         <li>Cut & Style</li>
                     </ul>
                 </div>
 
                 <div class="service-category">
-                    <h3>Nails</h3>
+                    <h3>Nail Care</h3>
                     <ul>
                         <li>Manicure</li>
-                        <li>Shellac</li>
+                        <li>Shellac Manicure</li>
                         <li>Pedicure</li>
                         <li>Toe Nail Clip</li>
                         <li>Toe Nail Polish (additional)</li>
@@ -202,62 +292,64 @@
                 <div class="service-category">
                     <h3>Perms</h3>
                     <ul>
-                        <li>Short</li>
-                        <li>Long</li>
-                        <li>Spiral</li>
+                        <li>Short Hair Perm</li>
+                        <li>Long Hair Perm</li>
+                        <li>Spiral Perm</li>
                     </ul>
                 </div>
 
                 <div class="service-category">
-                    <h3>Waxing (Women)</h3>
+                    <h3>Waxing (For Her)</h3>
                     <ul>
-                        <li>Brows</li>
-                        <li>Lips</li>
-                        <li>Chin</li>
-                        <li>Full Face</li>
+                        <li>Eyebrow Wax</li>
+                        <li>Lip Wax</li>
+                        <li>Chin Wax</li>
+                        <li>Full Face Wax</li>
                     </ul>
                 </div>
 
                 <div class="service-category">
-                    <h3>Waxing (Men)</h3>
+                    <h3>Waxing (For Him)</h3>
                     <ul>
-                        <li>Ears</li>
-                        <li>Back</li>
-                        <li>Chest</li>
+                        <li>Ear Wax</li>
+                        <li>Back Wax</li>
+                        <li>Chest Wax</li>
                     </ul>
                 </div>
 
                 <div class="service-category">
-                    <h3>Coloring</h3>
+                    <h3>Hair Coloring</h3>
                     <ul>
-                        <li>Regular</li>
+                        <li>Regular Color</li>
                         <li>Cap Hi-Lite</li>
                         <li>Foiling</li>
-                        <li>H-Lites</li>
+                        <li>Partial & Full H-Lites</li>
                     </ul>
                 </div>
 
                 <div class="service-category">
-                    <h3>Skin Treatments</h3>
+                    <h3>Skin Rejuvenation</h3>
                     <ul>
-                        <li>Chemical Peel (fruit) & get the 6th one free</li>
+                        <li>Chemical Peel (fruit-based)</li>
+                        <li>&ndash; **Get the 6th one FREE!**</li>
                         <li>Maintenance Peel</li>
                     </ul>
                 </div>
 
                 <div class="service-category">
-                    <h3>Rejuvenation</h3>
+                    <h3>Red Light Therapy</h3>
                     <ul>
-                        <li>Red Light Therapy</li>
+                        <li>Experience the benefits of RedLight Therapy.</li>
                     </ul>
                 </div>
 
                 <div class="service-category tanning">
-                    <h3>Tanning (Vertical)</h3>
+                    <h3>Vertical Tanning Booth</h3>
                     <ul>
-                        <li>10 minutes (max) = 30 minutes tanning bed</li>
-                        <li>1 session</li>
-                        <li>10 sessions</li>
+                        <li>**10 minutes (max) in Vertical Booth**</li>
+                        <li>(Equivalent to 30 minutes in a traditional tanning bed)</li>
+                        <li>1 Session</li>
+                        <li>10 Sessions Package</li>
                     </ul>
                 </div>
 
@@ -265,17 +357,16 @@
         </section>
 
         <section class="section contact-info">
-            <h2>Contact Us</h2>
-            <p>322 W, 22nd St</p>
-            <p>La Junta, CO 81005</p>
-            <p>Phone: <a href="tel:7193844420">719-384-4420</a></p>
-            <p>Email: <a href="mailto:rhonda.alberta58@gmail.com">rhonda.alberta58@gmail.com</a></p>
-            <p>Open Monday – Friday at 9am-?</p>
+            <h2>Connect With Us!</h2>
+            <p><strong>Location:</strong> 322 W, 22nd St, La Junta, CO 81005</p>
+            <p><strong>Call Us:</strong> <a href="tel:7193844420">719-384-4420</a></p>
+            <p><strong>Email Us:</strong> <a href="mailto:rhonda.alberta58@gmail.com">rhonda.alberta58@gmail.com</a></p>
+            <p><strong>Hours:</strong> Open Monday – Friday at 9 AM – ?</p>
         </section>
     </main>
 
     <footer>
-        <div class="container">
+        <div class="container-fluid">
             <p>&copy; 2024 Salon Mirage. All rights reserved.</p>
         </div>
     </footer>
